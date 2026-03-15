@@ -9,17 +9,13 @@ class Program
 
         
         double[] arvud = { 6.5, 2.1, 5.3, 4.1, 7.2 };
-
         double tulemus = jagaArvud(arvud);
-
         Console.WriteLine("Jagamise tulemus on: " + tulemus);
 
 
         Console.WriteLine("Sisesta oma perekonnanimi: ");
         string perekonnaNimi = Console.ReadLine();
-
         int aArv = LoeA(perekonnaNimi);
-
         Console.WriteLine("Sinu perekonnanimi sisaldab a tähte " + aArv + " korda");
 
 
