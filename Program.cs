@@ -1,45 +1,109 @@
 ﻿// See https://aka.ms/new-console-template for more information
-    //Ülesanne 1
-    int vanus;
-    do
-    {
-    Console.WriteLine("Sisesta siia oma vanus: ");
-    vanus = int.Parse(Console.ReadLine());
-    if (vanus <= 0)
-    {
-        Console.WriteLine("Arv peab olema suurem kui 0. ");
-    }
-}   while (vanus <= 0);
-    Console.WriteLine("Sinu vanus on: " + vanus);
+using System;
 
-     //Ülesanne 2
-     int aasta;
-     Console.WriteLine("Sisesta aastaarv vahemikus 1000 - 2025: ");
+class Program
 {
-    aasta = int.Parse(Console.ReadLine());
-    while (aasta < 1000 || aasta > 2025)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Arve peab olema neljakohaline ja vahemikus 1000 - 2025");
-        Console.WriteLine("Proovi uuesti: ");
-        aasta = int.Parse(Console.ReadLine());
+        Tervitus();
+
+        
+        double[] arvud = { 6.5, 2.1, 5.3, 4.1, 7.2 };
+
+        double tulemus = jagaArvud(arvud);
+
+        Console.WriteLine("Jagamise tulemus on: " + tulemus);
+
+
+        Console.WriteLine("Sisesta oma perekonnanimi: ");
+        string perekonnaNimi = Console.ReadLine();
+
+        int aArv = LoeA(perekonnaNimi);
+
+        Console.WriteLine("Sinu perekonnanimi sisaldab a tähte " + aArv + " korda");
+
+
+        Console.WriteLine("Kui kaugele sa täna jalgsi liikusid?");
+        double kõndimisKaugus = Convert.ToDouble(Console.ReadLine());
+        string kõndimisTulemus = jalgsiKõndimine(kõndimisKaugus);
+        Console.WriteLine(kõndimisTulemus);
+    
     }
-    Console.WriteLine("Sisestasid sobiva aastarvu:" + aasta);
+
+    //Ülesanne 1
+    static void Tervitus()
+    {
+        Console.WriteLine("Tere tulemast!");
+    }
+
+    
+    //Ülesanne 2
+    static double jagaArvud(double[] massiiv)
+    {
+        double tulemus = massiiv[0];
+
+        for (int i = 1; i < massiiv.Length; i++)
+        {
+            tulemus = tulemus / massiiv[i];
+        }
+
+        return tulemus;
+    }
+
 
     //Ülesanne 3
-    string[] jõuluKingiIdeed = { "sokid", "kampsun", "iphone 17", "käekell", "piparkoogid" };
-
-    for (int i = 0; i < jõuluKingiIdeed.Length; i++)
+    static int LoeA(string nimi)
     {
-        Console.WriteLine((i + 1) + ". " + jõuluKingiIdeed[i]);
+        int loendur = 0;
+
+        for (int i = 0; i < nimi.Length; i++)
+        {
+            if (nimi[i] == 'a' || nimi[i] == 'A')
+            {
+                loendur++;
+            }
+        }
+
+        return loendur;
     }
+
 
     //Ülesanne 4
-    int[] täisArvud = { 3, 4, 6, 7, 8 };
-    int korrutis = 1;
-    foreach (int arv in täisArvud)
-    {
-        korrutis = korrutis * arv;
-    }
-    Console.WriteLine("Kõigi elementide massiivi korrutis on: " + korrutis);
 
+    static string jalgsiKõndimine(double kaugus)
+    {
+        if (kaugus < 0)
+        {
+            return "Vigane sisend";
+        }
+        else if (kaugus == 0)
+        {
+            return "Paigalseisuga tervist ei hoia";
+        }
+        else if (kaugus > 0 && kaugus <= 5)
+        {
+            return "Tubli tulemus, kontorirotid tavaliselt nii palju ei liigu";
+        }
+        else if (kaugus > 5 && kaugus <= 10)
+        {
+            return "pool linna kõnnib sellega maha";
+        }
+        else if (kaugus > 10 && kaugus <= 15)
+        {
+            return "Wow see võtab üksjagu aega";
+        }
+        else if (kaugus > 15)
+        {
+            return "ära kiirusta >_<!!!";
+        }
+        return "";
+
+    }
 }
+
+
+
+
+
+
+
