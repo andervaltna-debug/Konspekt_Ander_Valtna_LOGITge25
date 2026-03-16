@@ -48,13 +48,13 @@ class Program
 
 
     //Ülesanne 3
-    static int LoeA(string nimi)
+    static int LoeA(string perekonnaNimi)
     {
         int loendur = 0;
 
-        for (int i = 0; i < nimi.Length; i++)
+        for (int i = 0; i < perekonnaNimi.Length; i++)
         {
-            if (nimi[i] == 'a' || nimi[i] == 'A')
+            if (perekonnaNimi[i] == 'a' || perekonnaNimi[i] == 'A')
             {
                 loendur++;
             }
@@ -66,29 +66,29 @@ class Program
 
     //Ülesanne 4
 
-    static string jalgsiKõndimine(double kaugus)
+    static string jalgsiKõndimine(double kõndimisKaugus)
     {
-        if (kaugus < 0)
+        if (kõndimisKaugus < 0)
         {
             return "Vigane sisend";
         }
-        else if (kaugus == 0)
+        else if (kõndimisKaugus == 0)
         {
             return "Paigalseisuga tervist ei hoia";
         }
-        else if (kaugus > 0 && kaugus <= 5)
+        else if (kõndimisKaugus > 0 && kõndimisKaugus <= 5)
         {
             return "Tubli tulemus, kontorirotid tavaliselt nii palju ei liigu";
         }
-        else if (kaugus > 5 && kaugus <= 10)
+        else if (kõndimisKaugus > 5 && kõndimisKaugus <= 10)
         {
             return "pool linna kõnnib sellega maha";
         }
-        else if (kaugus > 10 && kaugus <= 15)
+        else if (kõndimisKaugus > 10 && kõndimisKaugus <= 15)
         {
             return "Wow see võtab üksjagu aega";
         }
-        else if (kaugus > 15)
+        else if (kõndimisKaugus > 15)
         {
             return "ära kiirusta >_<!!!";
         }
